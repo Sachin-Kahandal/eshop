@@ -1,0 +1,55 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+    <div class="p-4 m-4">
+        <div class="col-lg-5 mx-auto border rounded p-4">
+            <h3 class="alert alert-light border rounded">Create An Account</h3>
+            <form action="/signup" method="POST">
+                {% csrf_token %} {% if error_msg %}
+                <div class="alert alert-danger" role="alert">
+                    {{error_msg}}
+                </div>
+                {% endif %}
+                <!-- First name -->
+                <div class="form-group mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">First Name</label>
+                    <input required type="text" class="form-control" name="first_name" placeholder="Charlie">
+                </div>
+                <!-- Last name -->
+                <div class="form-group mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Last Name</label>
+                    <input required type="text" class="form-control" name="last_name" placeholder="Harper">
+                </div>
+                <!-- Phone -->
+                <div class="form-group mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Phone</label>
+                    <input required type="number" class="form-control" name="phone" placeholder="9175834240">
+                </div>
+                <!-- Address -->
+                <div class="form-group mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Address</label>
+                    <input required type="text" class="form-control" name="address" placeholder="Address">
+                </div>
+                <!-- Email -->
+                <div class="form-group mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Email</label>
+                    <input required type="email" class="form-control" name="email" placeholder="name@example.com">
+                </div>
+                <!-- Password -->
+                <div class="form-group mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Password</label>
+                    <input required type="password" class="form-control" name=password placeholder="Password">
+                </div>
+                <!-- Confirm Password -->
+                <div class="form-group mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Confirm_Password</label>
+                    <input required type="password" class="form-control" name=confirm_password placeholder="Confirm_Password">
+                </div>
+                <div class="form-group mx-auto">
+                    <input class="btn btn-info" type="submit" value="Create An Account">
+                    <a style="padding-left:8%" href="/login"><small>Already have an account?</small></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
